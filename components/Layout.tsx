@@ -23,8 +23,8 @@ export const Layout: React.FC<LayoutProps> = ({ currentUser, onChangeUser }) => 
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
-      {/* Top Bar */}
-      <header className="bg-white px-4 py-3 sticky top-0 z-10 shadow-sm flex justify-between items-center">
+      {/* Top Bar - Now scrolls with page */}
+      <header className="bg-white px-4 py-3 shadow-sm flex justify-between items-center">
         <h1 className="text-xl font-bold text-slate-800 tracking-tight">Brotherhood</h1>
         <button
           onClick={onChangeUser}
@@ -42,8 +42,8 @@ export const Layout: React.FC<LayoutProps> = ({ currentUser, onChangeUser }) => 
         <Outlet />
       </main>
 
-      {/* Bottom Nav */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 pb-safe overflow-x-auto">
+      {/* Bottom Nav - Added safe area padding */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 pb-safe overflow-x-auto" style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 16px)' }}>
         <div className="flex items-center max-w-md mx-auto min-w-max">
           {navItems.map((item) => {
             const isActive = location.pathname === item.to;
