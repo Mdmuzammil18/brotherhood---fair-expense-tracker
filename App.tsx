@@ -102,8 +102,8 @@ const App: React.FC = () => {
             Supabase credentials are missing. Please add the following to your environment variables:
           </p>
           <div className="bg-slate-900 text-slate-300 text-xs text-left p-4 rounded-lg font-mono mb-6 overflow-x-auto whitespace-pre">
-            SUPABASE_URL=...{'\n'}
-            SUPABASE_ANON_KEY=...
+            VITE_SUPABASE_URL=...{'\n'}
+            VITE_SUPABASE_ANON_KEY=...
           </div>
           <p className="text-[10px] text-slate-400">
             The app cannot authenticate without these.
