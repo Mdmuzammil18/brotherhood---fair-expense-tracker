@@ -1,16 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Helper to safely access process.env without crashing in browser
-const getEnv = (key: string) => {
-  try {
-    return typeof process !== 'undefined' ? process.env?.[key] : undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const supabaseUrl = getEnv('SUPABASE_URL');
-const supabaseKey = getEnv('SUPABASE_ANON_KEY');
+// Get environment variables from Vite's import.meta.env
+// In production (Vercel), these must be prefixed with VITE_
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Helper to check if we have valid credentials
 export const isSupabaseConfigured = () => !!supabaseUrl && !!supabaseKey;
